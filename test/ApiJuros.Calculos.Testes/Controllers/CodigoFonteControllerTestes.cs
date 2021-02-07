@@ -1,7 +1,7 @@
 ﻿using ApiJuros.Calculos.Controllers;
 using NUnit.Framework;
 
-namespace ApiJuros.Calculos.Testes
+namespace ApiJuros.Calculos.Testes.Controllers
 {
     public class CodigoFonteControllerTestes
     {

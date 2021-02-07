@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ApiJuros.Calculos\ApiJuros.Calculos.csproj" />
+    <ProjectReference Include="..\..\src\ApiJuros.Calculos.Dominio\ApiJuros.Calculos.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

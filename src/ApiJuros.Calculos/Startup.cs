@@ -1,3 +1,4 @@
+using ApiJuros.Calculos.Configuracoes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,8 @@ namespace ApiJuros.Calculos
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ResolverDependencias();
+
             services.AddControllers();
         }
 

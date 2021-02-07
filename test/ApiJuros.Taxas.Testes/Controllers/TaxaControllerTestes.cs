@@ -1,7 +1,7 @@
-using ApiJuros.Taxas.Controllers;
+﻿using ApiJuros.Taxas.Controllers;
 using NUnit.Framework;
 
-namespace ApiJuros.Taxas.Testes
+namespace ApiJuros.Taxas.Testes.Controllers
 {
     public class TaxaControllerTestes
     {
