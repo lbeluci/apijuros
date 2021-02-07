@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJuros.Taxas", "src\ApiJuros.Taxas\ApiJuros.Taxas.csproj", "{52E3FBB9-891F-46DE-8542-0FFE2D3E09AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiJuros.Taxas", "src\ApiJuros.Taxas\ApiJuros.Taxas.csproj", "{52E3FBB9-891F-46DE-8542-0FFE2D3E09AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJuros.Calculos", "src\ApiJuros.Calculos\ApiJuros.Calculos.csproj", "{D9D30A80-2A2B-4D11-A003-BF23944E46BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiJuros.Calculos", "src\ApiJuros.Calculos\ApiJuros.Calculos.csproj", "{D9D30A80-2A2B-4D11-A003-BF23944E46BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJuros.Taxas.Testes", "test\ApiJuros.Taxas.Testes\ApiJuros.Taxas.Testes.csproj", "{6AF680F7-2D6F-480A-B311-1161DB95D27D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D9D30A80-2A2B-4D11-A003-BF23944E46BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9D30A80-2A2B-4D11-A003-BF23944E46BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9D30A80-2A2B-4D11-A003-BF23944E46BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF680F7-2D6F-480A-B311-1161DB95D27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF680F7-2D6F-480A-B311-1161DB95D27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF680F7-2D6F-480A-B311-1161DB95D27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF680F7-2D6F-480A-B311-1161DB95D27D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
