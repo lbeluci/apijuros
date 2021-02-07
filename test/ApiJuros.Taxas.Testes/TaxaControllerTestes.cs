@@ -14,7 +14,7 @@ namespace ApiJuros.Taxas.Testes
         }
 
         [Test]
-        public void ATaxaDeJurosRetornadaDeveSerDe1()
+        public void ATaxaDeJurosRetornadaDeveSerDe001()
         {
             string valorEsperado = "0,01";
 
