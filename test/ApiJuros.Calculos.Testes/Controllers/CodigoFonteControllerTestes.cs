@@ -1,4 +1,5 @@
 ﻿using ApiJuros.Calculos.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 
 namespace ApiJuros.Calculos.Testes.Controllers
@@ -18,9 +19,11 @@ namespace ApiJuros.Calculos.Testes.Controllers
         {
             string valorEsperado = "https://github.com/lbeluci/apijuros";
 
-            string valorAtual = _codigoFonteController.ShowMeTheCode();
+            OkObjectResult resultado = _codigoFonteController.ShowMeTheCode() as OkObjectResult;
 
-            Assert.AreEqual(valorEsperado, valorAtual);
+            Assert.IsNotNull(resultado);
+
+            Assert.AreEqual(valorEsperado, resultado.Value);
         }
     }
 }

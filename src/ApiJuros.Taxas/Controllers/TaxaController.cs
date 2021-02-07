@@ -7,9 +7,9 @@ namespace ApiJuros.Taxas.Controllers
     {
         [HttpGet]
         [Route("taxajuros")]
-        public string ObterTaxaJuros()
+        public IActionResult ObterTaxaJuros()
         {
-            return "0,01";
+            return Ok("0,01");
         }
     }
 }

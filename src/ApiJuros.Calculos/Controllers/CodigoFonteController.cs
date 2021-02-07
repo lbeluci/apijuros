@@ -7,9 +7,9 @@ namespace ApiJuros.Calculos.Controllers
     {
         [HttpGet]
         [Route("showmethecode")]
-        public string ShowMeTheCode()
+        public IActionResult ShowMeTheCode()
         {
-            return "https://github.com/lbeluci/apijuros";
+            return Ok("https://github.com/lbeluci/apijuros");
         }
     }
 }

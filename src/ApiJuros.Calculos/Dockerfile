@@ -1,6 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build-env
 WORKDIR /app
 
+COPY ApiJuros.Calculos.Infra ./
+RUN dotnet restore ApiJuros.Calculos.Infra.csproj
+
 COPY ApiJuros.Calculos.Dominio ./
 RUN dotnet restore ApiJuros.Calculos.Dominio.csproj
 

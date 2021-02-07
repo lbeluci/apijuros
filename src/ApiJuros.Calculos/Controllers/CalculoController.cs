@@ -7,18 +7,27 @@ namespace ApiJuros.Calculos.Controllers
     [ApiController]
     public class CalculoController : Controller
     {
-        private readonly ICalcularJurosCompostosServico _calcularJurosCompostosServico;
+        private readonly IServicoCalcularJurosCompostos _servicoCalcularJurosCompostos;
+        private readonly INotificador _notificador;
 
-        public CalculoController(ICalcularJurosCompostosServico calcularJurosCompostosServico)
+        public CalculoController(IServicoCalcularJurosCompostos servicoCalcularJurosCompostos, INotificador notificador)
         {
-            _calcularJurosCompostosServico = calcularJurosCompostosServico;
+            _servicoCalcularJurosCompostos = servicoCalcularJurosCompostos;
+            _notificador = notificador;
         }
-
+        
         [HttpGet]
         [Route("calculajuros")]
-        public string CalcularJuros([FromQuery] decimal valorInicial, [FromQuery] int meses)
+        public IActionResult CalcularJuros([FromQuery] decimal valorInicial, [FromQuery] int meses)
         {
-            return _calcularJurosCompostosServico.CalcularTruncandoEmDuasCasasDecimais(valorInicial, 0.01M, meses).ToString("N2", CultureInfo.CreateSpecificCulture("pt-BR"));
+            decimal valorCalculado = _servicoCalcularJurosCompostos.CalcularTruncandoEmDuasCasasDecimais(valorInicial, meses);
+
+            if (_notificador.TemNotificacoes())
+            {
+                return BadRequest(_notificador.ObterNotificacoes());
+            }
+
+            return Ok(valorCalculado.ToString("N2", CultureInfo.CreateSpecificCulture("pt-BR")));
         }
     }
 }

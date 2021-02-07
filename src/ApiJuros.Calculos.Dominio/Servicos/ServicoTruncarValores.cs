@@ -3,7 +3,7 @@ using System;
 
 namespace ApiJuros.Calculos.Dominio.Servicos
 {
-    public class TruncarValoresServico : ITruncarValoresServico
+    public class ServicoTruncarValores : IServicoTruncarValores
     {
         public decimal TruncarValor(decimal valor, byte decimais)
         {

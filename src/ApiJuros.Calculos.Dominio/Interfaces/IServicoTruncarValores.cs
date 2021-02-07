@@ -1,6 +1,6 @@
 ﻿namespace ApiJuros.Calculos.Dominio.Interfaces
 {
-    public interface ITruncarValoresServico
+    public interface IServicoTruncarValores
     {
         public decimal TruncarValor(decimal valor, byte decimais);
     }

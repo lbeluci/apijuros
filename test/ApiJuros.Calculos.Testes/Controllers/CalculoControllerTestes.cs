@@ -1,5 +1,6 @@
 using ApiJuros.Calculos.Controllers;
 using ApiJuros.Calculos.Dominio.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 
@@ -7,33 +8,56 @@ namespace ApiJuros.Calculos.Testes.Controllers
 {
     public class CalculoControllerTestes
     {
-        private Mock<ICalcularJurosCompostosServico> _mockCalcularJurosCompostosServico;
+        private Mock<IServicoCalcularJurosCompostos> _mockCalcularJurosCompostosServico;
+        private Mock<INotificador> _mockNotificador;
 
         private CalculoController _calculoController;
+
+        private string _valorEsperado;
+        private decimal _valorInicial;
+        private int _meses;
+        private decimal _valorCalculado;
 
         [SetUp]
         public void Setup()
         {
-            _mockCalcularJurosCompostosServico = new Mock<ICalcularJurosCompostosServico>();
+            _mockCalcularJurosCompostosServico = new Mock<IServicoCalcularJurosCompostos>();
+            _mockNotificador = new Mock<INotificador>();
+            
+            _valorEsperado = "105,10";
+            _valorInicial = 100;
+            _meses = 5;
+            _valorCalculado = 105.10M;
+
+            _mockCalcularJurosCompostosServico.Setup(x => x.CalcularTruncandoEmDuasCasasDecimais(_valorInicial, _meses)).Returns(_valorCalculado);
         }
 
         [Test]
-        public void OValorCalculadoComJurosDeveSerDe10510()
+        public void DeveRetornarOValor10510()
         {
-            decimal valorInicial = 100;
-            decimal taxaJuros = 0.01M;
-            int meses = 5;
-            decimal valorCalculado = 105.10M;
+            _calculoController = new CalculoController(_mockCalcularJurosCompostosServico.Object, _mockNotificador.Object);
 
-            _mockCalcularJurosCompostosServico.Setup(x => x.CalcularTruncandoEmDuasCasasDecimais(valorInicial, taxaJuros, meses)).Returns(valorCalculado);
+            OkObjectResult resultado = _calculoController.CalcularJuros(_valorInicial, _meses) as OkObjectResult;
 
-            _calculoController = new CalculoController(_mockCalcularJurosCompostosServico.Object);
+            Assert.IsNotNull(resultado);
 
-            string valorAtual = _calculoController.CalcularJuros(valorInicial, meses);
+            Assert.AreEqual(resultado.StatusCode, 200);
 
-            string valorEsperado = "105,10";
+            Assert.AreEqual(_valorEsperado, resultado.Value);
+        }
 
-            Assert.AreEqual(valorEsperado, valorAtual);
+        [Test]
+        public void DeveRetornarBadRequest()
+        {
+            _mockNotificador.Setup(n => n.TemNotificacoes()).Returns(true);
+
+            _calculoController = new CalculoController(_mockCalcularJurosCompostosServico.Object, _mockNotificador.Object);
+
+            BadRequestObjectResult resultado = _calculoController.CalcularJuros(_valorInicial, _meses) as BadRequestObjectResult;
+
+            Assert.IsNotNull(resultado);
+
+            Assert.AreEqual(resultado.StatusCode, 400);
         }
     }
 }

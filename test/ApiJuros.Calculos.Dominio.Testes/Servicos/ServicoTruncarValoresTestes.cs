@@ -4,42 +4,42 @@ using NUnit.Framework;
 
 namespace ApiJuros.Calculos.Dominio.Testes.Servicos
 {
-    public class TruncarValoresServicoTestes
+    public class ServicoTruncarValoresTestes
     {
-        ITruncarValoresServico _truncarValoresServico;
+        IServicoTruncarValores _servicoTruncarValores;
 
         [SetUp]
         public void Setup()
         {
-            _truncarValoresServico = new TruncarValoresServico();
+            _servicoTruncarValores = new ServicoTruncarValores();
         }
 
         [Test]
-        public void DeveTruncarUmDecimalEmDuasCasas()
+        public void DeveTruncarUmValorDecimalEmDuasCasas()
         {
             decimal valorEsperado = 105.10M;
 
-            decimal valorAtual = _truncarValoresServico.TruncarValor(105.10M, 2);
+            decimal valorAtual = _servicoTruncarValores.TruncarValor(105.10M, 2);
 
             Assert.AreEqual(valorEsperado, valorAtual);
         }
 
         [Test]
-        public void DeveTruncarUmDecimalEmDuasCasasPositivo()
+        public void DeveTruncarUmValorDecimalPositivoEmDuasCasas()
         {
             decimal valorEsperado = 105.10M;
 
-            decimal valorAtual = _truncarValoresServico.TruncarValor(105.10987654321M, 2);
+            decimal valorAtual = _servicoTruncarValores.TruncarValor(105.10987654321M, 2);
 
             Assert.AreEqual(valorEsperado, valorAtual);
         }
 
         [Test]
-        public void DeveTruncarUmDecimalEmDuasCasasNegativo()
+        public void DeveTruncarUmDecimalNegativoEmDuasCasas()
         {
             decimal valorEsperado = -105.10M;
 
-            decimal valorAtual = _truncarValoresServico.TruncarValor(-105.10987654321M, 2);
+            decimal valorAtual = _servicoTruncarValores.TruncarValor(-105.10987654321M, 2);
 
             Assert.AreEqual(valorEsperado, valorAtual);
         }

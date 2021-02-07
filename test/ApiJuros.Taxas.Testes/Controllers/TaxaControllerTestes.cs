@@ -1,11 +1,12 @@
 ﻿using ApiJuros.Taxas.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 
 namespace ApiJuros.Taxas.Testes.Controllers
 {
     public class TaxaControllerTestes
     {
-        TaxaController _taxaController;
+        private TaxaController _taxaController;
 
         [SetUp]
         public void Setup()
@@ -14,13 +15,15 @@ namespace ApiJuros.Taxas.Testes.Controllers
         }
 
         [Test]
-        public void ATaxaDeJurosRetornadaDeveSerDe001()
+        public void DeveRetornarOValor001()
         {
             string valorEsperado = "0,01";
 
-            string valorAtual = _taxaController.ObterTaxaJuros();
+            OkObjectResult resultado = _taxaController.ObterTaxaJuros() as OkObjectResult;
 
-            Assert.AreEqual(valorEsperado, valorAtual);
+            Assert.IsNotNull(resultado);
+
+            Assert.AreEqual(valorEsperado, resultado.Value);
         }
     }
 }
