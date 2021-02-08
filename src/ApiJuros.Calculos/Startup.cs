@@ -20,7 +20,7 @@ namespace ApiJuros.Calculos
         {
             services.ResolverDependencias();
 
-            services.ConfiguraOpcoes(Configuration);
+            services.ConfigurarOpcoes(Configuration);
 
             services.AddControllers();
         }
@@ -31,6 +31,8 @@ namespace ApiJuros.Calculos
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseLocalization("pt-BR");
 
             app.UseRouting();
 
