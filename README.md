@@ -2,16 +2,21 @@
 
 Projeto que visa efetuar o cálculo de juros compostos.
 
-O projeto se divide em duas APIs: ApiJuros.Taxas e ApiJuros.Calculos.
+O projeto se divide basicamente em duas APIs: ApiJuros.Taxas e ApiJuros.Calculos.
 
-1. ApiJuros.Taxas
+# ApiJuros.Taxas
 
-A API ApiJuros.Taxas é responsável por retornar uma taxa de juros para ser utilizada no cálculo de juros compostos.
+A API ApiJuros.Taxas é responsável por fornecer uma taxa de juros para ser utilizada no cálculo de juros compostos.
 
-2. ApiJuros.Calculos
+Para obter uma taxa de juros deve-se utilizar o recurso: /taxajuros
 
-A API ApiJuros.Calculos é responsável por efetuar o cálculo de juros.
-A ApiJuros.Calculos utiliza a ApiJuros.Taxas para obter a taxa de juros que será utilizada no cálculo.
+# ApiJuros.Calculos
+
+A API ApiJuros.Calculos é responsável por efetuar o cálculo dos juros compostos.
+
+Para obter uma taxa de juros deve-se utilizar o recurso informando o valor inicial e o período em meses: /calculajuros?valorinicial=?&meses=?
+
+A taxa de juros que será utilizada no cálculo será obtida por meio da API ApiJuros.Taxas.
 
 # Configurando a API
 
@@ -24,9 +29,9 @@ Após publicar a ApiJuros.Taxas, deve-se configurar o arquivo appsettings.json d
 	}
 ```
 
-* **UrlServicoTaxaJuros**: Endereço do recurso "taxajuros" para ser utilizado no cálculo de juros compostos
+* **UrlServicoTaxaJuros**: Deve-se informar o endereço do recurso "taxajuros" para que o mesmo possa ser utilizado no cálculo dos juros compostos.
 
-# Docker
+# Docker + Código Fonte
 
 Para executar os projetos ApiJuros.Taxas e ApiJuros.Calculos utilizando Docker e o código fonte do projeto, posicione o cursor do Terminal na pasta "src" e execute os comandos:
 
@@ -50,7 +55,9 @@ docker run -d -p 80:80 --name apitaxasjuros --net apinet lbeluci/apitaxasjuros
 docker run -d -p 8080:80 --name apicalculosjuros --net apinet lbeluci/apicalculosjuros
 ```
 
-Para executar os projetos ApiJuros.Taxas e ApiJuros.Calculos utilizando Docker, execute os comandos:
+# Docker + Imagens
+
+Para executar os projetos ApiJuros.Taxas e ApiJuros.Calculos utilizando apenas imagens Docker, execute os comandos:
 
 ```docker
 docker pull lbeluci/apitaxasjuros:latest
