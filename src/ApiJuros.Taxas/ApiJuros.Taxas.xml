@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiJuros.Taxas</name>
+    </assembly>
+    <members>
+        <member name="T:ApiJuros.Taxas.Controllers.TaxaController">
+            <summary>
+            API 1
+            </summary>
+        </member>
+        <member name="M:ApiJuros.Taxas.Controllers.TaxaController.ObterTaxaJuros">
+            <summary>
+            Retorna uma taxa de juros para ser utilizada no cálculo de juros compostos.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

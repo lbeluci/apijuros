@@ -23,6 +23,8 @@ namespace ApiJuros.Calculos
             services.ConfigurarOpcoes(Configuration);
 
             services.AddControllers();
+
+            services.AddSwaggerConfig();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -35,6 +37,8 @@ namespace ApiJuros.Calculos
             app.UseLocalization("pt-BR");
 
             app.UseRouting();
+
+            app.UseSwaggerConfig();
 
             app.UseEndpoints(endpoints =>
             {

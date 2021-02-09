@@ -4,6 +4,9 @@ using System.Globalization;
 
 namespace ApiJuros.Calculos.Controllers
 {
+    /// <summary>
+    /// API 2
+    /// </summary>
     [ApiController]
     public class CalculoController : Controller
     {
@@ -15,7 +18,13 @@ namespace ApiJuros.Calculos.Controllers
             _servicoCalcularJurosCompostos = servicoCalcularJurosCompostos;
             _notificador = notificador;
         }
-        
+
+        /// <summary>
+        /// Retorna o montante calculado em função do capital, da taxa de juros e do tempo.
+        /// </summary>
+        /// <param name="valorInicial">Valor inicial da negociação</param>
+        /// <param name="meses">Tempo em meses em que o valor inicial ficará aplicado</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("calculajuros")]
         public IActionResult CalcularJuros([FromQuery] decimal valorInicial, [FromQuery] int meses)

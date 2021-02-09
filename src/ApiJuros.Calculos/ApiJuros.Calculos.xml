@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiJuros.Calculos</name>
+    </assembly>
+    <members>
+        <member name="T:ApiJuros.Calculos.Controllers.CalculoController">
+            <summary>
+            API 2
+            </summary>
+        </member>
+        <member name="M:ApiJuros.Calculos.Controllers.CalculoController.CalcularJuros(System.Decimal,System.Int32)">
+            <summary>
+            Retorna o montante calculado em função do capital, da taxa de juros e do tempo.
+            </summary>
+            <param name="valorInicial">Valor inicial da negociação</param>
+            <param name="meses">Tempo em meses em que o valor inicial ficará aplicado</param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiJuros.Calculos.Controllers.CodigoFonteController">
+            <summary>
+            API 2
+            </summary>
+        </member>
+        <member name="M:ApiJuros.Calculos.Controllers.CodigoFonteController.ShowMeTheCode">
+            <summary>
+            Retorna a url onde se encontra o código fonte das APIs 1 e 2 no GitHub.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

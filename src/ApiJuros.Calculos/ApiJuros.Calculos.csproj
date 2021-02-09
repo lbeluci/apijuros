@@ -4,6 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <DocumentationFile>ApiJuros.Calculos.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.2" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\ApiJuros.Calculos.Dominio\ApiJuros.Calculos.Dominio.csproj" />
     <ProjectReference Include="..\ApiJuros.Calculos.Infra\ApiJuros.Calculos.Infra.csproj" />

@@ -1,3 +1,4 @@
+using ApiJuros.Taxas.Configuracoes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,8 @@ namespace ApiJuros.Taxas
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerConfig();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -20,6 +23,8 @@ namespace ApiJuros.Taxas
             }
 
             app.UseRouting();
+
+            app.UseSwaggerConfig();
 
             app.UseEndpoints(endpoints =>
             {
