@@ -8,15 +8,23 @@ O projeto se divide basicamente em duas APIs: ApiJuros.Taxas e ApiJuros.Calculos
 
 A API ApiJuros.Taxas é responsável por fornecer uma taxa de juros para ser utilizada no cálculo de juros compostos.
 
-Para obter uma taxa de juros deve-se utilizar o recurso: /taxajuros
+Para obter uma taxa de juros deve-se utilizar o recurso:
+
+```
+/taxajuros
+```
 
 # ApiJuros.Calculos
 
 A API ApiJuros.Calculos é responsável por efetuar o cálculo dos juros compostos.
 
-Para obter uma taxa de juros deve-se utilizar o recurso informando o valor inicial e o período em meses: /calculajuros?valorinicial=?&meses=?
+Para obter uma taxa de juros deve-se utilizar o recurso informando o valor inicial e o período em meses:
 
-A taxa de juros que será utilizada no cálculo será obtida por meio da API ApiJuros.Taxas.
+```
+/calculajuros?valorinicial=?&meses=?
+```
+
+A taxa de juros que será utilizada no cálculo não precisa ser informada pois será obtida automaticamente por meio da API ApiJuros.Taxas.
 
 # Configurando a API
 
