@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+    apicalculosjuros:
+        image: lbeluci/apicalculosjuros
+        ports:
+            - "8080:80"
+        networks:
+            - api-network
+        depends_on:
+            - "apitaxasjuros"
+
+    apitaxasjuros:
+        image: lbeluci/apitaxasjuros
+        ports:
+            - "80:80"
+        networks:
+            - api-network
+
+networks:
+    api-network:
+        driver: bridge

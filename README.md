@@ -86,3 +86,11 @@ docker run -d -p 80:80 --name apitaxasjuros --net apinet lbeluci/apitaxasjuros
 ```docker
 docker run -d -p 8080:80 --name apicalculosjuros --net apinet lbeluci/apicalculosjuros
 ```
+
+# Docker Compose
+
+Para executar os projetos ApiJuros.Taxas e ApiJuros.Calculos utilizando apenas imagens Docker+Compose, baixe e execute o arquivo:
+
+```docker
+docker-compose.yaml
+```
